@@ -1,16 +1,14 @@
+import { Link } from "react-router-dom"
 
-import React from 'react'
+
 
 export const SearchPage = () => {
   return (
     <div className="search-books">
           <div className="search-books-bar">
-            <a
-              className="close-search"
-              onClick={()=>{}}
-            >
+            <Link to="/" className="close-search">
               Close
-            </a>
+            </Link>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
