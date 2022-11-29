@@ -6,13 +6,11 @@ import { Route, Routes } from "react-router-dom";
 
 
 function App() {
-  // const [showSearchPage, setShowSearchpage] = useState(true);
-
   return (
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
-      </Routes>
+    <Routes>
+      <Route exact path="/" element={<HomePage />} />
+      <Route path="/search" element={<SearchPage />} />
+    </Routes>
 
   );
 }
