@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
 
-
 export const SearchPage = () => {
+
   return (
     <div className="search-books">
           <div className="search-books-bar">
