@@ -15,6 +15,10 @@ const shelves = ["Currently Reading", "Want to Read", "Read"];
     });    
   }, [])
 
+  const updateShelf = (book) => {
+   
+  };
+
   
   return (
       <div className="list-books app">
@@ -25,7 +29,11 @@ const shelves = ["Currently Reading", "Want to Read", "Read"];
               <div>
                 {
                   shelves.map(shelf => (
-                      <BookShelf key={shelf} shelf={shelf} books={books}/>
+                      <BookShelf 
+                        key={shelf} 
+                        shelf={shelf} 
+                        books={books}
+                        onShelfChange={updateShelf}/>
                   ))
                 }
               </div>

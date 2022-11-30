@@ -1,7 +1,12 @@
 
 
-export const Book = ({book}) => {
+export const Book = ({book, onShelfChange}) => {
   const bookOptions = ["Currently Reading", "Want to Read", "Read", "None"];
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    onShelfChange(book);
+  }
 
   return (
       <li>
@@ -17,7 +22,7 @@ export const Book = ({book}) => {
                 }}
               ></div>
             <div className="book-shelf-changer">
-              <select>
+              <select value={book?.id} onChange={handleChange}>
                 <option value="none" disabled>
                   Move to...
                 </option>
