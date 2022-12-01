@@ -7,7 +7,11 @@ import { BookShelf } from "../components/BookShelf";
 export function HomePage() {
 const [books, setBooks] = useState([]);
 
-const shelves = ["Currently Reading", "Want to Read", "Read"];
+const shelves = {
+  currentlyReading: "Currently Reading",
+  wantToRead : "Want to Read",
+  read: "Read"
+};
   
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
@@ -15,8 +19,12 @@ const shelves = ["Currently Reading", "Want to Read", "Read"];
     });    
   }, [])
 
-  const updateShelf = (book) => {
-   
+  const updateShelf = (book, shelfToUpdate) => {
+    const updatedBooks = books.filter(b => b.id !== book.id);
+    book.shelf = shelfToUpdate;
+    
+    setBooks([...updatedBooks, book]);
+    BooksAPI.update(book, shelfToUpdate);
   };
 
   
@@ -28,10 +36,11 @@ const shelves = ["Currently Reading", "Want to Read", "Read"];
             <div className="list-books-content">
               <div>
                 {
-                  shelves.map(shelf => (
+                  Object.keys(shelves).map(shelf => (
                       <BookShelf 
                         key={shelf} 
                         shelf={shelf} 
+                        shelfName={shelves[shelf]}
                         books={books}
                         onShelfChange={updateShelf}/>
                   ))

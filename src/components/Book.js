@@ -1,11 +1,15 @@
 
 
 export const Book = ({book, onShelfChange}) => {
-  const bookOptions = ["Currently Reading", "Want to Read", "Read", "None"];
+  const bookOptions = {
+    currentlyReading: "Currently Reading",
+    wantToRead : "Want to Read",
+    read: "Read"
+  };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    onShelfChange(book);
+    console.log(book);
+    onShelfChange(book, e.target.value);
   }
 
   return (
@@ -22,16 +26,23 @@ export const Book = ({book, onShelfChange}) => {
                 }}
               ></div>
             <div className="book-shelf-changer">
-              <select value={book?.id} onChange={handleChange}>
+              <select value={book?.shelf} onChange={handleChange}>
                 <option value="none" disabled>
                   Move to...
                 </option>
-                { bookOptions.map( option => (
-                  <option key={option} value={option}>
-                      {option}
+                {/* { Object.keys(bookOptions).map( option => (
+                  <option key={bookOptions[option]} value={option}>
+                      {bookOptions[option]}
                   </option>
                   )
-                )}
+                )} */}
+
+                    <option value="currentlyReading">
+                    Currently Reading
+                    </option>
+                    <option value="wantToRead">Want to Read</option>
+                    <option value="read">Read</option>
+                    <option value="none">None</option>
               </select>
             </div>
           </div>
