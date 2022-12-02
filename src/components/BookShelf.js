@@ -1,5 +1,4 @@
 import { Book } from "./Book"
-// import { toCamelCase } from "../utils";
 
 export const BookShelf = ({ shelf, shelfName, books, onShelfChange }) => {
 
