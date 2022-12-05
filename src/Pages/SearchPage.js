@@ -5,7 +5,7 @@ import { Book } from "../components/Book";
 import * as BooksAPI from "../BooksAPI";
 
 
-export const SearchPage = () => {
+export const SearchPage = ({onShelfChange}) => {
 
   const [searchValue, setSearchValue] = useState("");
   const [error, setError] = useState(false);
@@ -28,10 +28,10 @@ export const SearchPage = () => {
     }
   }
 
-  const updateShelf = (book, shelfToUpdate) => {
-    book.shelf = shelfToUpdate;
-    BooksAPI.update(book, shelfToUpdate);
-  };
+  // const updateShelf = (book, shelfToUpdate) => {
+  //   book.shelf = shelfToUpdate;
+  //   BooksAPI.update(book, shelfToUpdate);
+  // };
  
   useEffect(() => {
     if(!debounceValue){
@@ -65,7 +65,7 @@ export const SearchPage = () => {
                 !results.length 
                         ? ""
                         : results.map(book => (
-                          <Book key={book.id} book={book} onShelfChange={updateShelf}/>
+                          <Book key={book.id} book={book} onShelfChange={onShelfChange}/>
                           ))
               }
               

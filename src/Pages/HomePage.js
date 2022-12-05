@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import * as BooksAPI from "../BooksAPI";
 import { BookShelf } from "../components/BookShelf";
 
 
-export function HomePage() {
-const [books, setBooks] = useState([]);
+export function HomePage({books, onShelfChange}) {
+// const [books, setBooks] = useState([]);
 
 const shelves = {
   currentlyReading: "Currently Reading",
@@ -13,19 +11,19 @@ const shelves = {
   read: "Read"
 };
   
-  useEffect(() => {
-    BooksAPI.getAll().then((books) => {
-      setBooks(books);
-    });    
-  }, [])
+  // useEffect(() => {
+  //   BooksAPI.getAll().then((books) => {
+  //     setBooks(books);
+  //   });    
+  // }, [])
 
-  const updateShelf = (book, shelfToUpdate) => {
-    const updatedBooks = books.filter(b => b.id !== book.id);
-    book.shelf = shelfToUpdate;
+  // const updateShelf = (book, shelfToUpdate) => {
+  //   const updatedBooks = books.filter(b => b.id !== book.id);
+  //   book.shelf = shelfToUpdate;
     
-    setBooks([...updatedBooks, book]);
-    BooksAPI.update(book, shelfToUpdate);
-  };
+  //   setBooks([...updatedBooks, book]);
+  //   BooksAPI.update(book, shelfToUpdate);
+  // };
 
   
   return (
@@ -42,7 +40,7 @@ const shelves = {
                         shelf={shelf} 
                         shelfName={shelves[shelf]}
                         books={books}
-                        onShelfChange={updateShelf}/>
+                        onShelfChange={onShelfChange}/>
                   ))
                 }
               </div>

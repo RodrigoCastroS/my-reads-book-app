@@ -4,7 +4,8 @@ export const Book = ({book, onShelfChange}) => {
   const bookOptions = {
     currentlyReading: "Currently Reading",
     wantToRead : "Want to Read",
-    read: "Read"
+    read: "Read",
+    none: "None"
   };
 
   const handleChange = (e) => {
