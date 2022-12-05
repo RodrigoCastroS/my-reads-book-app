@@ -21,13 +21,16 @@ function App() {
   useEffect(() => {
     BooksAPI.getAll().then((books) => {
       setBooks(books);
+    })
+    return (() => {
+      setBooks([]);
     });    
   }, [])
 
   return (
     <Routes>
       <Route exact path="/" element={<HomePage books={books} onShelfChange={updateShelf} />} />
-      <Route path="/search" element={<SearchPage onShelfChange={updateShelf}/>} />
+      <Route path="/search" element={<SearchPage bookShelf={books} onShelfChange={updateShelf} />} />
     </Routes>
 
   );
