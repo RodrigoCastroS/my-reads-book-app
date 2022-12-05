@@ -9,7 +9,7 @@ Of course, you are free to start this project from scratch if you wish! Just be 
 To get started developing right away:
 
 - install all project dependencies with `npm install`
-- start the development server with `npm start`
+- start the development server with `npm start`. You can start the server with `yarn start` as well if you have yarn installed.
 
 ## What You're Getting
 
@@ -22,10 +22,17 @@ To get started developing right away:
 │   ├── favicon.ico # React Icon, You may change if you wish.
 │   └── index.html # DO NOT MODIFY
 └── src
+    ├── components
+    │    ├── Book.js
+    │    └── BookShelf.js
+    ├── Pages
+    │    ├── HomePage.js
+    │    └── SearchPage.js   
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
+    ├── useDebounce.js # A Javascript hook to be used when inputing the text to search in this case
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
